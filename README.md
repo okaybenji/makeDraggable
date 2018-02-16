@@ -1,4 +1,7 @@
 # makeDraggable
+
+[CHECK OUT THE DEMO!](https://okaybenji.github.io/makeDraggable/)
+
 You've found perhaps the simplest library out there for enabling drag-and-drop on your DOM elements. Just look at these *impressive* numbers!
 
 * 1 file
