@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>makeDraggable.js</title>
+    <link rel="stylesheet" type="text/css" href="demo/style.css">
+  </head>
+
+  <body>
+    <main>
+      <div id="title">makeDraggable.js</div>
+
+      <div id="content">
+        <h1>makeDraggable</h1>
+        <p>You've found perhaps the simplest library out there for enabling drag-and-drop on your DOM elements. Just look at these <i>impressive</i> numbers!</p>
+        <ul>
+          <li>1 file</li>
+          <li>40 lines</li>
+          <li>1 function</li>
+          <li>0 dependencies</li>
+          <li>7 billion potential users</li>
+        </ul>
+        <p>To be honest, you could probably just copy and paste the code. Go ahead, no one's looking.</p>
+        <h2>How To Use It</h2>
+        <p>Make an element draggable with <span class="code">makeDraggable(element)</span></p>
+        <h3>Handles</h3>
+        <p>There's support for "handles" like title bars. Try dragging this window around.</p>
+        <p>Make just the top 25 pixels accept dragging:<br><span class="code">makeDraggable(element, {top: 25})</span></p>
+        <p>Make just the top, right corner accept dragging:<br><span class="code">makeDraggable(element, {top: 25, right: 25})</span></p>
+        <p>(Note right now you can't make, e.g., the top <i>and</i> bottom grabbable at the same time. I don't imagine you would want to do that anyway.)</p>
+      </div>
+    </main>
+    <div id="taskbar">S o m e O S</div>
+    <div class="folder" id="drag">DRAG</div>
+    <div class="folder" id="me">ME</div>
+    <div class="folder" id="around">AROUND</div>
+  </body>
+  <script src="index.js"></script>
+  <script>
+    const $ = (query) => document.querySelector(query);
+
+    // Make the main window draggable by clicking on the title bar.
+    makeDraggable($('main'), {top: 42});
+
+    // Make the folders draggable (and highlightable, just for fun).
+    const folders = [$('#drag'), $('#me'), $('#around')];
+
+    $('body').addEventListener('click', (e) => {
+      // Reset highlight on all elements
+      folders.forEach((f) => {
+        f.classList.remove('highlight');
+      });
+    });
+
+    folders.forEach((folder) => {
+      makeDraggable(folder);
+
+      folder.addEventListener('click', (e) => {
+        // Enable highlight on this folder
+        // Slight hack to make sure this happens after resetting highlights
+        setTimeout(() => {
+          folder.classList.toggle('highlight');
+        });
+      });
+    });
+  </script>
+</html>

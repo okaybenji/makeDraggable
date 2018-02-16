@@ -1,0 +1,92 @@
+@font-face {
+  font-family: pixel;
+  src: url('pixel.ttf');
+}
+
+body {
+  background-image: url('bg.png');
+  image-rendering: pixelated;
+  font-family: pixel;
+  font-size: 20px;
+}
+
+main {
+  position: relative;
+  top: 100px;
+  left: 100px;
+  width: 800px;
+  height: 600px;
+  background-image: url('window.png');
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+#taskbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border-bottom: black 1px solid;
+  height: 18px;
+  padding: 12px;
+}
+
+#title {
+  position: relative;
+  top: 5px;
+  left: 20px;
+  color: white;
+  height: 29px;
+  line-height: 32px;
+}
+
+#content {
+  padding: 0px 30px;
+  position: relative;
+  top: 13px;
+  width: 740px;
+  height: 556px;
+  overflow: scroll;
+  line-height: 28px;
+}
+
+.folder {
+  position: absolute;
+  background-image: url('folder.png');
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  left: 1000px;
+}
+
+.highlight {
+  opacity: .5;
+}
+
+.code {
+  background-color: lightgray;
+}
+
+.code:before {
+  content: "\00a0 ";
+}
+
+.code:after {
+  content: "\00a0 ";
+}
+
+#drag {
+  top: 80px;
+}
+
+#me {
+  top: 220px;
+}
+
+#around {
+  top: 360px;
+}
